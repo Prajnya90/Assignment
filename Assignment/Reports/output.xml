@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.10.10 on win32)" generated="20231015 10:51:11.611" rpa="false" schemaversion="3">
+<suite id="s1" name="APITest" source="C:\Assignment\TestSuite\APITest.robot">
+<kw name="Create Session" library="RequestsLibrary" type="SETUP">
+<arg>Test</arg>
+<arg>${BASE_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20231015 10:51:11.817" level="INFO">Creating Session using : alias=Test, url=http://restapi.adequateshop.com/api, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20231015 10:51:11.817" endtime="20231015 10:51:11.817"/>
+</kw>
+<test id="s1-t1" name="TC01.Validate Api-Endpoint" line="10">
+<kw name="Ping Server" library="Keywords">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>Customer</arg>
+<arg>${BASE_URL}</arg>
+<arg>verify=True</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20231015 10:51:11.817" level="INFO">Creating Session using : alias=Customer, url=http://restapi.adequateshop.com/api, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<status status="PASS" starttime="20231015 10:51:11.817" endtime="20231015 10:51:11.817"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>Customer</arg>
+<arg>url=${BASE_URL}/Customer</arg>
+<arg>expected_status=200</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20231015 10:51:13.470" level="INFO">GET Request : url=http://restapi.adequateshop.com/api/Customer 
+ path_url=/api/Customer 
+ headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20231015 10:51:13.470" level="INFO">GET Response : url=http://restapi.adequateshop.com/api/Customer 
+ status=200, reason=OK 
+ headers={'Via': '1.1 158.234.99.121 (McAfee Web Gateway 10.2.17.43600)', 'Date': 'Sun, 15 Oct 2023 07:51:12 GMT', 'Pragma': 'no-cache', 'Server': 'Microsoft-IIS/10.0', 'Expires': '-1', 'X-Cache': 'MISS from 158.234.99.121', 'Content-Type': 'application/json; charset=utf-8', 'X-Powered-By': 'ASP.NET', 'Cache-Control': 'no-cache', 'Content-Length': '1741', 'Proxy-Connection': 'Keep-Alive', 'X-AspNet-Version': '4.0.30319'} 
+ body=[{"id":276167,"name":"id-rl2blg1","email":"id-rl2blg1@gmail.com","location":"Shanghai"},{"id":276166,"name":"id-ccc7ybg","email":"id-ccc7ybg@gmail.com","location":"Shanghai"},{"id":276165,"name":"id-y6f3gg9","email":"id-y6f3gg9@gmail.com","location":"Shanghai"},{"id":276164,"name":"id-rsdky02","email":"id-rsdky02@gmail.com","location":"Shanghai"},{"id":276163,"name":"id-tzehalh","email":"id-tzehalh@gmail.com","location":"Shanghai"},{"id":276162,"name":"id-gslkhzr","email":"id-gslkhzr@gmail.com","location":"Shanghai"},{"id":276161,"name":"id-el3jl8i","email":"id-el3jl8i@gmail.com","location":"Shanghai"},{"id":276160,"name":"id-ap0edga","email":"id-ap0edga@gmail.com","location":"Shanghai"},{"id":276159,"name":"id-qfg5b1o","email":"id-qfg5b1o@gmail.com","location":"Shanghai"},{"id":276158,"name":"id-7u7f2nw","email":"id-7u7f2nw@gmail.com","location":"Shanghai"},{"id":276157,"name":"id-ltkvbqw","email":"id-ltkvbqw@gmail.com","location":"Shanghai"},{"id":276151,"name":"id-2xlcc4n","email":"id-2xlcc4n@gmail.com","location":"Shanghai"},{"id":276147,"name":"id-2ian274","email":"id-2ian274@gmail.com","location":"Shanghai"},{"id":276146,"name":"id-8x2wj6m","email":"id-8x2wj6m@gmail.com","location":"Shanghai"},{"id":276145,"name":"id-mzvo5zb","email":"id-mzvo5zb@gmail.com","location":"Shanghai"},{"id":276144,"name":"id-itzhrfx","email":"id-itzhrfx@gmail.com","location":"Shanghai"},{"id":276143,"name":"id-7tzvveb","email":"id-7tzvveb@gmail.com","location":"Shanghai"},{"id":276142,"name":"id-yxpeb6z","email":"id-yxpeb6z@gmail.com","location":"Shanghai"},{"id":276140,"name":"id-3ryb3kb","email":"id-3ryb3kb@gmail.com","location":"Shanghai"},{"id":276139,"name":"id-5nzjua0","email":"id-5nzjua0@gmail.com","location":"Shanghai"}] 
+ </msg>
+<msg timestamp="20231015 10:51:13.470" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20231015 10:51:11.817" endtime="20231015 10:51:13.470"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<msg timestamp="20231015 10:51:13.470" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20231015 10:51:13.470" endtime="20231015 10:51:13.470"/>
+</kw>
+<status status="PASS" starttime="20231015 10:51:11.817" endtime="20231015 10:51:13.470"/>
+</kw>
+<doc>This is a dry run Testcase which tests
+if the Customer Get endpoint works correctly</doc>
+<tag>Smoke</tag>
+<status status="PASS" starttime="20231015 10:51:11.817" endtime="20231015 10:51:13.470"/>
+</test>
+<test id="s1-t2" name="TC02.Register New user and account with Valid Input" line="16">
+<kw name="Account Regestration" library="Keywords">
+<kw name="Generate Random String" library="String">
+<var>${rnd}</var>
+<arg>12</arg>
+<arg>[LETTERS][NUMBERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<msg timestamp="20231015 10:51:13.470" level="INFO">${rnd} = tbZ68p1cGPQv</msg>
+<status status="PASS" starttime="20231015 10:51:13.470" endtime="20231015 10:51:13.470"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${finlan}</var>
+<arg>${rnd}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20231015 10:51:13.470" level="INFO">${finlan} = tbZ68p1cGPQv</msg>
+<status status="PASS" starttime="20231015 10:51:13.470" endtime="20231015 10:51:13.470"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${Mail}</var>
+<arg>${finlan}@gmail.com</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20231015 10:51:13.470" level="INFO">${Mail} = tbZ68p1cGPQv@gmail.com</msg>
+<status status="PASS" starttime="20231015 10:51:13.470" endtime="20231015 10:51:13.470"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${EMAILN}</var>
+<arg>${Mail}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20231015 10:51:13.470" level="INFO">${EMAILN} = tbZ68p1cGPQv@gmail.com</msg>
+<status status="PASS" starttime="20231015 10:51:13.470" endtime="20231015 10:51:13.470"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${HEADERS}</var>
+<arg>Content-Type=${CONTENT_TYPE}</arg>
+<arg>User-Agent=${USR_Agent}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20231015 10:51:13.470" level="INFO">${HEADERS} = {'Content-Type': 'application/json', 'User-Agent': 'RobotFramework'}</msg>
+<status status="PASS" starttime="20231015 10:51:13.470" endtime="20231015 10:51:13.470"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>Registratiion</arg>
+<arg>${BASE_URL}</arg>
+<arg>verify=True</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20231015 10:51:13.470" level="INFO">Creating Session using : alias=Registratiion, url=http://restapi.adequateshop.com/api, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<status status="PASS" starttime="20231015 10:51:13.470" endtime="20231015 10:51:13.470"/>
+</kw>
+<kw name="POST On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>Registratiion</arg>
+<arg>url=${BASE_URL}${REGISTR}</arg>
+<arg>data={"name":"${FULLNAME}","email":"${EMAILN}","password":"${PASSWORD}"}</arg>
+<arg>headers=${HEADERS}</arg>
+<arg>expected_status=200</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<msg timestamp="20231015 10:51:13.981" level="INFO">POST Request : url=http://restapi.adequateshop.com/api/AuthAccount/Registration 
+ path_url=/api/AuthAccount/Registration 
+ headers={'User-Agent': 'RobotFramework', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '78'} 
+ body={"name":"Prajnya Mishra","email":"tbZ68p1cGPQv@gmail.com","password":"ABC123"} 
+ </msg>
+<msg timestamp="20231015 10:51:13.981" level="INFO">POST Response : url=http://restapi.adequateshop.com/api/AuthAccount/Registration 
+ status=200, reason=OK 
+ headers={'Via': '1.1 158.234.99.121 (McAfee Web Gateway 10.2.17.43600)', 'Date': 'Sun, 15 Oct 2023 07:51:13 GMT', 'Pragma': 'no-cache', 'Server': 'Microsoft-IIS/10.0', 'Expires': '-1', 'X-Cache': 'MISS from 158.234.99.121', 'Content-Type': 'application/json; charset=utf-8', 'X-Powered-By': 'ASP.NET', 'Cache-Control': 'no-cache', 'Content-Length': '155', 'Proxy-Connection': 'Keep-Alive', 'X-AspNet-Version': '4.0.30319'} 
+ body={"code":0,"message":"success","data":{"Id":276175,"Name":"Prajnya Mishra","Email":"tbZ68p1cGPQv@gmail.com","Token":"03888076-e919-4ede-a08f-673f9cb20f77"}} 
+ </msg>
+<msg timestamp="20231015 10:51:13.981" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20231015 10:51:13.470" endtime="20231015 10:51:13.981"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<msg timestamp="20231015 10:51:13.981" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20231015 10:51:13.981" endtime="20231015 10:51:13.981"/>
+</kw>
+<kw name="Element Should Exist" library="JsonValidator">
+<arg>${response.json()}</arg>
+<arg>.message</arg>
+<doc>Check the existence of one or more elements, matching [ http://jsonselect.org/ | JSONSelect] expression.</doc>
+<status status="PASS" starttime="20231015 10:51:13.981" endtime="20231015 10:51:13.981"/>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<var>${message}</var>
+<arg>${response.json()}</arg>
+<arg>message</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20231015 10:51:13.981" level="INFO">${message} = success</msg>
+<status status="PASS" starttime="20231015 10:51:13.981" endtime="20231015 10:51:13.981"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${message}</arg>
+<arg>success</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20231015 10:51:13.981" endtime="20231015 10:51:13.981"/>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<var>${Data}</var>
+<arg>${response.json()}</arg>
+<arg>data</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20231015 10:51:13.981" level="INFO">${Data} = {'Id': 276175, 'Name': 'Prajnya Mishra', 'Email': 'tbZ68p1cGPQv@gmail.com', 'Token': '03888076-e919-4ede-a08f-673f9cb20f77'}</msg>
+<status status="PASS" starttime="20231015 10:51:13.981" endtime="20231015 10:51:13.981"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${message}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231015 10:51:13.981" endtime="20231015 10:51:13.981"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${Data}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231015 10:51:13.981" endtime="20231015 10:51:13.981"/>
+</kw>
+<status status="PASS" starttime="20231015 10:51:13.470" endtime="20231015 10:51:13.981"/>
+</kw>
+<doc>This Testcase tests if the Customer Registration
+endpoint works correctly with Valid Input</doc>
+<tag>Regression</tag>
+<tag>Smoke</tag>
+<status status="PASS" starttime="20231015 10:51:13.470" endtime="20231015 10:51:13.981"/>
+</test>
+<test id="s1-t3" name="TC03.Validate if Invalid input Reject New account registration and provide correct Error message" line="21">
+<kw name="Account Regestration Errorcase" library="Keywords">
+<doc>This Keyword is to test Error cases in Reg</doc>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${HEADERS}</var>
+<arg>Content-Type=${CONTENT_TYPE}</arg>
+<arg>User-Agent=${USR_Agent}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20231015 10:51:13.985" level="INFO">${HEADERS} = {'Content-Type': 'application/json', 'User-Agent': 'RobotFramework'}</msg>
+<status status="PASS" starttime="20231015 10:51:13.985" endtime="20231015 10:51:13.985"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>Registratiion</arg>
+<arg>${BASE_URL}</arg>
+<arg>verify=True</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20231015 10:51:13.985" level="INFO">Creating Session using : alias=Registratiion, url=http://restapi.adequateshop.com/api, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<status status="PASS" starttime="20231015 10:51:13.985" endtime="20231015 10:51:13.985"/>
+</kw>
+<kw name="POST On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>Registratiion</arg>
+<arg>url=${BASE_URL}${REGISTR}</arg>
+<arg>data={"name":"${FULLNAME}","email":"${EMAIL}","password":"${PASSWORD}"}</arg>
+<arg>headers=${HEADERS}</arg>
+<arg>expected_status=200</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<msg timestamp="20231015 10:51:14.549" level="INFO">POST Request : url=http://restapi.adequateshop.com/api/AuthAccount/Registration 
+ path_url=/api/AuthAccount/Registration 
+ headers={'User-Agent': 'RobotFramework', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '76'} 
+ body={"name":"Prajnya Mishra","email":"Prajnya121@gmail.com","password":"ABC123"} 
+ </msg>
+<msg timestamp="20231015 10:51:14.549" level="INFO">POST Response : url=http://restapi.adequateshop.com/api/AuthAccount/Registration 
+ status=200, reason=OK 
+ headers={'Via': '1.1 158.234.99.121 (McAfee Web Gateway 10.2.17.43600)', 'Date': 'Sun, 15 Oct 2023 07:51:13 GMT', 'Pragma': 'no-cache', 'Server': 'Microsoft-IIS/10.0', 'Expires': '-1', 'X-Cache': 'MISS from 158.234.99.121', 'Content-Type': 'application/json; charset=utf-8', 'X-Powered-By': 'ASP.NET', 'Cache-Control': 'no-cache', 'Content-Length': '91', 'Proxy-Connection': 'Keep-Alive', 'X-AspNet-Version': '4.0.30319'} 
+ body={"code":1,"message":"The email address you have entered is already registered","data":null} 
+ </msg>
+<msg timestamp="20231015 10:51:14.549" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20231015 10:51:13.985" endtime="20231015 10:51:14.549"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<msg timestamp="20231015 10:51:14.549" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20231015 10:51:14.549" endtime="20231015 10:51:14.549"/>
+</kw>
+<kw name="Element Should Exist" library="JsonValidator">
+<arg>${response.json()}</arg>
+<arg>.message</arg>
+<doc>Check the existence of one or more elements, matching [ http://jsonselect.org/ | JSONSelect] expression.</doc>
+<status status="PASS" starttime="20231015 10:51:14.549" endtime="20231015 10:51:14.549"/>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<var>${message}</var>
+<arg>${response.json()}</arg>
+<arg>message</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20231015 10:51:14.549" level="INFO">${message} = The email address you have entered is already registered</msg>
+<status status="PASS" starttime="20231015 10:51:14.549" endtime="20231015 10:51:14.549"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${message}</arg>
+<arg>The email address you have entered is already registered</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20231015 10:51:14.549" endtime="20231015 10:51:14.549"/>
+</kw>
+<status status="PASS" starttime="20231015 10:51:13.985" endtime="20231015 10:51:14.549"/>
+</kw>
+<doc>This Testcase tests if the Customer Registration
+endpoint works correctly with inValid Input</doc>
+<tag>Regression</tag>
+<tag>Smoke</tag>
+<status status="PASS" starttime="20231015 10:51:13.985" endtime="20231015 10:51:14.549"/>
+</test>
+<test id="s1-t4" name="TC04.Conform the Login Api works successfully with valid Credentials" line="26">
+<kw name="Account Login" library="Keywords">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${HEADERS}</var>
+<arg>Content-Type=${CONTENT_TYPE}</arg>
+<arg>User-Agent=${USR_Agent}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20231015 10:51:14.549" level="INFO">${HEADERS} = {'Content-Type': 'application/json', 'User-Agent': 'RobotFramework'}</msg>
+<status status="PASS" starttime="20231015 10:51:14.549" endtime="20231015 10:51:14.549"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>Login</arg>
+<arg>${BASE_URL}</arg>
+<arg>verify=True</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20231015 10:51:14.549" level="INFO">Creating Session using : alias=Login, url=http://restapi.adequateshop.com/api, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<status status="PASS" starttime="20231015 10:51:14.549" endtime="20231015 10:51:14.549"/>
+</kw>
+<kw name="POST On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>Login</arg>
+<arg>url=${BASE_URL}${LOGIN}</arg>
+<arg>data={"email":"${LOGINEMAIL}","password":"${LOGINPASSWORD}"}</arg>
+<arg>headers=${HEADERS}</arg>
+<arg>expected_status=200</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<msg timestamp="20231015 10:51:15.120" level="INFO">POST Request : url=http://restapi.adequateshop.com/api/AuthAccount/Login 
+ path_url=/api/AuthAccount/Login 
+ headers={'User-Agent': 'RobotFramework', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '52'} 
+ body={"email":"Prajnya121@gmail.com","password":"ABC123"} 
+ </msg>
+<msg timestamp="20231015 10:51:15.120" level="INFO">POST Response : url=http://restapi.adequateshop.com/api/AuthAccount/Login 
+ status=200, reason=OK 
+ headers={'Via': '1.1 158.234.99.121 (McAfee Web Gateway 10.2.17.43600)', 'Date': 'Sun, 15 Oct 2023 07:51:14 GMT', 'Pragma': 'no-cache', 'Server': 'Microsoft-IIS/10.0', 'Expires': '-1', 'X-Cache': 'MISS from 158.234.99.121', 'Content-Type': 'application/json; charset=utf-8', 'X-Powered-By': 'ASP.NET', 'Cache-Control': 'no-cache', 'Content-Length': '153', 'Proxy-Connection': 'Keep-Alive', 'X-AspNet-Version': '4.0.30319'} 
+ body={"code":0,"message":"success","data":{"Id":276075,"Name":"Prajnya Mishra","Email":"Prajnya121@gmail.com","Token":"cada01f4-91da-4b3b-ba60-47ed38554011"}} 
+ </msg>
+<msg timestamp="20231015 10:51:15.120" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20231015 10:51:14.549" endtime="20231015 10:51:15.120"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<msg timestamp="20231015 10:51:15.120" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20231015 10:51:15.120" endtime="20231015 10:51:15.120"/>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<var>${message}</var>
+<arg>${response.json()}</arg>
+<arg>message</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20231015 10:51:15.120" level="INFO">${message} = success</msg>
+<status status="PASS" starttime="20231015 10:51:15.120" endtime="20231015 10:51:15.120"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${message}</arg>
+<arg>success</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20231015 10:51:15.120" endtime="20231015 10:51:15.120"/>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<var>${Data}</var>
+<arg>${response.json()}</arg>
+<arg>data</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20231015 10:51:15.120" level="INFO">${Data} = {'Id': 276075, 'Name': 'Prajnya Mishra', 'Email': 'Prajnya121@gmail.com', 'Token': 'cada01f4-91da-4b3b-ba60-47ed38554011'}</msg>
+<status status="PASS" starttime="20231015 10:51:15.120" endtime="20231015 10:51:15.120"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${message}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231015 10:51:15.120" endtime="20231015 10:51:15.120"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${Data}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231015 10:51:15.120" endtime="20231015 10:51:15.120"/>
+</kw>
+<status status="PASS" starttime="20231015 10:51:14.549" endtime="20231015 10:51:15.120"/>
+</kw>
+<doc>This Testcase tests if the Account Login
+endpoint works correctly with Valid Input</doc>
+<tag>Regression</tag>
+<tag>Smoke</tag>
+<status status="PASS" starttime="20231015 10:51:14.549" endtime="20231015 10:51:15.120"/>
+</test>
+<test id="s1-t5" name="TC05.Validate if Login Api provide proprr validation for Invalid Credentials" line="31">
+<kw name="Account Login ErrorCase" library="Keywords">
+<doc>This Keyword is to test Error cases in Login</doc>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${HEADERS}</var>
+<arg>Content-Type=${CONTENT_TYPE}</arg>
+<arg>User-Agent=${USR_Agent}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20231015 10:51:15.120" level="INFO">${HEADERS} = {'Content-Type': 'application/json', 'User-Agent': 'RobotFramework'}</msg>
+<status status="PASS" starttime="20231015 10:51:15.120" endtime="20231015 10:51:15.120"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>Login</arg>
+<arg>${BASE_URL}</arg>
+<arg>verify=True</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20231015 10:51:15.120" level="INFO">Creating Session using : alias=Login, url=http://restapi.adequateshop.com/api, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<status status="PASS" starttime="20231015 10:51:15.120" endtime="20231015 10:51:15.120"/>
+</kw>
+<kw name="POST On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>Login</arg>
+<arg>url=${BASE_URL}${LOGIN}</arg>
+<arg>data={"email":"${LOGINEMAIL}}","password":"${INVALIDPASSWORD}"}</arg>
+<arg>headers=${HEADERS}</arg>
+<arg>expected_status=200</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<msg timestamp="20231015 10:51:15.672" level="INFO">POST Request : url=http://restapi.adequateshop.com/api/AuthAccount/Login 
+ path_url=/api/AuthAccount/Login 
+ headers={'User-Agent': 'RobotFramework', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '50'} 
+ body={"email":"Prajnya121@gmail.com}","password":"500"} 
+ </msg>
+<msg timestamp="20231015 10:51:15.672" level="INFO">POST Response : url=http://restapi.adequateshop.com/api/AuthAccount/Login 
+ status=200, reason=OK 
+ headers={'Via': '1.1 158.234.99.121 (McAfee Web Gateway 10.2.17.43600)', 'Date': 'Sun, 15 Oct 2023 07:51:14 GMT', 'Pragma': 'no-cache', 'Server': 'Microsoft-IIS/10.0', 'Expires': '-1', 'X-Cache': 'MISS from 158.234.99.121', 'Content-Type': 'application/json; charset=utf-8', 'X-Powered-By': 'ASP.NET', 'Cache-Control': 'no-cache', 'Content-Length': '63', 'Proxy-Connection': 'Keep-Alive', 'X-AspNet-Version': '4.0.30319'} 
+ body={"code":1,"message":"invalid username or password","data":null} 
+ </msg>
+<msg timestamp="20231015 10:51:15.672" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20231015 10:51:15.120" endtime="20231015 10:51:15.672"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<msg timestamp="20231015 10:51:15.672" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20231015 10:51:15.672" endtime="20231015 10:51:15.672"/>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<var>${message}</var>
+<arg>${response.json()}</arg>
+<arg>message</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20231015 10:51:15.672" level="INFO">${message} = invalid username or password</msg>
+<status status="PASS" starttime="20231015 10:51:15.672" endtime="20231015 10:51:15.672"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${message}</arg>
+<arg>invalid username or password</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20231015 10:51:15.672" endtime="20231015 10:51:15.672"/>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<var>${Data}</var>
+<arg>${response.json()}</arg>
+<arg>data</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20231015 10:51:15.672" level="INFO">${Data} = None</msg>
+<status status="PASS" starttime="20231015 10:51:15.672" endtime="20231015 10:51:15.672"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${message}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231015 10:51:15.672" endtime="20231015 10:51:15.672"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${Data}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231015 10:51:15.672" endtime="20231015 10:51:15.672"/>
+</kw>
+<status status="PASS" starttime="20231015 10:51:15.120" endtime="20231015 10:51:15.672"/>
+</kw>
+<doc>This Testcase tests if the Account Login
+endpoint works correctly with InValid Input and provide correct Validation</doc>
+<tag>Regression</tag>
+<tag>Smoke</tag>
+<status status="PASS" starttime="20231015 10:51:15.120" endtime="20231015 10:51:15.672"/>
+</test>
+<kw name="Delete All Sessions" library="RequestsLibrary" type="TEARDOWN">
+<doc>Removes all the session objects</doc>
+<msg timestamp="20231015 10:51:15.672" level="INFO">Deleting All Sessions</msg>
+<status status="PASS" starttime="20231015 10:51:15.672" endtime="20231015 10:51:15.672"/>
+</kw>
+<doc>This Tests Suite Tests Both poseteive and Negateive cases for Registration and Login api Endpoints.
+(Runnning in diffrent envs)robot --logtitle "Smoke Test Log" --reporttitle "Smoke Test Report" -d ../Reports -V variables/env-int.py Tests*.*
+(Test by tag): robot -i [tagname] -d ../Reports *.robot ( all tests): robot -d Reports *.robot
+robot -i Regression -d ../Reports *.robot (For only Regression tests)</doc>
+<status status="PASS" starttime="20231015 10:51:11.611" endtime="20231015 10:51:15.672"/>
+</suite>
+<statistics>
+<total>
+<stat pass="5" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="4" fail="0" skip="0">Regression</stat>
+<stat pass="5" fail="0" skip="0">Smoke</stat>
+</tag>
+<suite>
+<stat pass="5" fail="0" skip="0" id="s1" name="APITest">APITest</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
